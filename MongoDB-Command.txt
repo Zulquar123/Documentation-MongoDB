@@ -1,0 +1,10 @@
+
+1. Show dbs ========================================================================> Show exixting Database.
+2. use 'database_name'==============================================================> Create new database and use existing database.
+3. db.createCollection('collection_name') ==========================================> Create collections.
+4. show collections ================================================================> Show all collections in a database.
+5. db.'collection_name'.renameCollections('new_collection_name'); ==================> Renameming a collection.
+6. db.help =========================================================================> Show useful commands.
+7. db.'collection_name'.help =======================================================> show useful commands related to collections
+8. db.'collection_name'.drop() =====================================================> delete Collects.
+9. db.dropDatabase() ===============================================================> delete Database.
