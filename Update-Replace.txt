@@ -1,0 +1,145 @@
+
+========================================Syntax of UpdateOne ==========================
+db.'collection_name'.updateOne(
+    {field:"Value"},
+    {$set: {updated_field: 'new_value'}}
+)
+
+// Examples 
+
+db.Employee_Details.updateOne(
+    { age: "10"},
+    {$set: {name:"Zulquar Nain"}}
+)
+
+ db.Employee_Details.updateOne(
+     { qualification: "Bsc" },
+     { $set: { name: "Zeeshan Ansari" , age: 15} } 
+)
+
+
+===================================================== Syntax of UpdateMany ==========================
+
+db.'collection_name'.updateMany(
+    {field:"Value"},
+    {$set: {updated_field: 'new_value'}}
+)
+
+// Exmaples 
+  Employee> db.Employee_Details.updateMany(
+    {qualification: "Bsc"},
+    {$set: { age:19}}
+)
+======================================== Various MongoDB update operator ============================
+
+1. $set     ----------> update the keys's value.
+
+// Exmaples 
+  Employee> db.Employee_Details.updateMany(
+    {qualification: "Bsc"},
+    {$set: { age:19}}
+)
+
+2. $unset   ----------> Removes the filed(key and value) from the document.
+      
+      Example:
+                db.Employee_Info.updateOne(
+                    {name:"Zulquar"},
+                    {$unset: {Degree: ""}}
+                )
+
+3. $rename  ----------> Rename the key. 
+
+    Example :
+             db.Employee_Info.updateMany(
+                {name:'Zulquar'}, // {} for all records
+                {$rename: {'qualification':'Degree'}}   
+            )
+           
+4. $inc     ----------> Increments of Field Values.
+
+    Examples:
+             db.Employee_Details.updateOne(
+                {name: 'Zulquar Nain'},
+                {$inc: {age:5}}
+             )
+
+5. $mul     ----------> Multiplies of Field Values.
+
+    Example:
+            db.Employee_Details.updateOne(
+                {name: "Zulquar Nain" },
+                {$mul : {age:3}}
+            )
+
+6. $min    ----------> Check for the min value.
+
+    Example:
+
+            db.Employee_Details.updateOne(
+                {name: "Zulquar Nain" },
+                {$min : {age:14}}
+            )
+
+7. $max     ----------> Check for the max value.
+
+    Example:
+
+            db.Employee_Details.updateOne(
+                {name: "Zulquar Nain" },
+                {$max : {age:14}}
+            )
+
+6. $push -------------> Adds an element to the array without check.
+
+    Example:
+            db.Employee_Details.updateMany(
+                {}, // To all records.
+                {$push : {'Skills' : 'B.Tech'}}
+            )
+
+7. $addToSet ------------> Checks for the existing value if found then avoid other push the value. 
+
+    Example:
+            db.Employee_Details.updateMany(
+                {}, // To all records.
+                {$addToSet : {'Skills' : 'B.Tech'}}
+            )
+
+8. $pop --------------> Removes the first or last elements of the array.
+
+    Example:
+            db.Employee_Details.updateMany(
+                {}, // To all records.
+                {$pop : {'Skills' : 1}} // Removes the value from start(-1) and end(1).
+            )
+
+9. $pull -------------> Removes the elements from an array that match the query. 
+
+    Example:
+             db.Employee_Details.updateMany(
+                {},
+                {$pull : {'Skills' : 'CSS3'}}
+            )
+
+10. $pullAll  -------------> Removes the Multiple elements from an array that match the query.
+
+        Example :
+             db.Employee_Details.updateMany(
+                {},
+                {$pullAll : {'Skills' : ['CSS3','Javascript']}}
+            )
+
+11. $replace -------------> Replace the record with the new keys and values.
+
+        Example : 
+                db.Employee_Details.replaceOne(
+                {name: 'Zulquar Nain'},
+                {name : 'Zulquar', age:16 , qualification:'B.C.A' , skill : ['C++','Java']}
+            )
+
+6. $currentDate ------> sets the field value to the current Date.
+
+
+
+

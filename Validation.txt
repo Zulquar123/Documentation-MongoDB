@@ -1,0 +1,60 @@
+db.createCollection('Employee_Details',{
+validator:{
+    $jsonSchema:{
+        required:["name","age","qualification"], title: "Student Object Validation",
+        properties: {
+            name: {
+                bsonType: "string",
+                description: "Name must be a string and is required"
+            },
+            age:{
+                bsonType:"int",
+                minimum: 5,
+                maximum: 20,
+                description: "Age must be an integer between 5 and 20 "
+            },
+            qualification: {
+                bsonType: "string",
+                enum: ["B.C.A","B.tech","Bsc"],
+                description: "Course must be one of the following values : B.C.A , B.tech or Bsc  "
+
+            }
+        }
+        
+    }
+}
+})
+
+======================================================== Command for Exixsting collections ===========================
+
+db.runCommand({
+    collMod:"Employee_Details",
+    validator:{
+        $jsonSchema:{
+             required:["name","age","qualification"], title: "Student Object Validation",
+              properties: {
+            name: {
+                bsonType: "string",
+                description: "Name must be a string and is required"
+            },
+            age:{
+                bsonType:"int",
+                minimum: 5,
+                maximum: 20,
+                description: "Age must be an integer between 5 and 20 "
+            },
+            qualification: {
+                bsonType: "string",
+                enum: ["B.C.A","B.tech","Bsc"],
+                description: "Course must be one of the following values : B.C.A , B.tech or Bsc "
+            }
+        }
+
+        }
+    }
+})
+
+
+======================================================== DataTypes in bsonType ===============================
+
+Datatype that can be defined in bsonType ---> "string","int","Double","bool","Array","Object","Date". 
