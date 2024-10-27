@@ -1,0 +1,27 @@
+1. To view all records/document.
+
+    db.Employee_Details.find()
+
+2. To view multiple records/document with a given condition.
+
+    db.Employee_Details.find({qualification:"Bsc"})
+
+3. To view single record/document with a given contion.
+
+    db.Employee_Details.findOne({qualification:"Bsc"})
+
+4. To view selected field (projection) in a record/document with a given contion.
+
+    db.Employee_Details.find( {age: 20}, { _id:0,name:1,Skills:1} )
+
+    or
+
+    db.Employee_Details.findOne({ qualification: "Bsc" }, { _id: 0, name: 1, Skills: 1 } )
+
+
+5. To view To view selected field (projection) in a record/document with a given contion.  (Alternative of 4.)
+
+    db.Employee_Details.find().projection({_id:0,name:1,qualification:1})
+                                
+                              
+                                

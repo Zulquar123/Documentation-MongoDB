@@ -1,0 +1,12 @@
+1. DeleteOne ------->
+
+Example:
+         db.Employee_Details.deleteOne({name:'Zulquar'}) // Delete single record.
+
+2. DeleteMany ------>
+
+Example:
+         db.Employee_Details.deleteMany({age: 20})  // Delete multiple records based on condition.
+
+        db.Employee_Details.deleteMany({})          // Delete all records
+
