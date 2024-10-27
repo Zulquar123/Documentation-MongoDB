@@ -23,5 +23,25 @@
 
     db.Employee_Details.find().projection({_id:0,name:1,qualification:1})
                                 
-                              
+6. To count the number of record/document with a given contion.
+
+    db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).count()  // 4    
+
+7. To sort the records/Document.
+
+    db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({name:1})  
+
+     db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({age: -1})  
+
+    note: use 1 for acending order and -1 for descending order and can also be used in numeric data.
+
+8. To view limited records/documents.
+
+    db.Employee_Details.find().limit(3)
+
+     db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({name:1}).limit(2)  
+
+8. To view limited Skiped records/documents.
+
+     db.Employee_Details.find().limit(3).skip(1)
                                 
