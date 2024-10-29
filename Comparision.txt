@@ -1,0 +1,54 @@
+1. $eq  ====> Values are equal.
+2. $ne  ====> Values are not equal. 
+3. $gt  ====> Value is greater than another value. 
+4. $gte ====> Value is greater than or equal to another value. 
+5. $lt  ====> Value is less another value. 
+6. $lte ====> Value is less than or equal to another value. 
+7. $in  ====> Value is matched within an array. 
+8. $nin ====> Value is not matched within an array. 
+
+
+Examples ======================================================================================
+
+1. $eq  ====> Values are equal.
+
+            db.Employee_Details.find({age:{$eq:17}})
+            db.Employee_Details.find({qualification:{$eq:"Bsc"}})
+            db.Employee_Details.findOneAndUpdate({age:{$eq:17}},
+                                                 {$set :{qualification:"B.tech"}}
+                                                 )
+
+2. $ne  ====> Values are not equal. 
+
+            db.Employee_Details.find({age:{$ne:17}})
+            db.Employee_Details.find({qualification:{$ne:"Bsc"}})
+
+3. $gt  ====> Value is greater than another value. 
+
+            db.Employee_Details.find({age:{$gt:16}})
+            db.Employee_Details.find({age:{$gt:18}})
+
+4. $gte ====> Value is greater than or equal to another value. 
+
+            db.Employee_Details.find({age:{$gte:15}})
+            db.Employee_Details.find({age:{$gte:18}})
+
+6. $lt  ====> Value is less another value. 
+
+            db.Employee_Details.find({age:{$lt:16}})
+            db.Employee_Details.find({age:{$lt:19}})
+
+6. $lte ====> Value is less than or equal to another value. 
+
+            db.Employee_Details.find({age:{$lte:15}})
+            db.Employee_Details.find({age:{$lte:18}})
+
+7. $in  ====> Value is matched within an array. 
+
+            db.Employee_Details.find({qualification:{$in:["B.C.A","Bsc"]}})
+            db.Employee_Details.find({age:{$in:[15,18]}})
+
+8. $nin ====> Value is not matched within an array. 
+          
+            db.Employee_Details.find({qualification:{$nin:["B.C.A","Bsc"]}})
+            db.Employee_Details.find({age:{$nin:[15,18]}})
