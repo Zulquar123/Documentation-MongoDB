@@ -8,6 +8,18 @@
 7. db.'collection_name'.help =======================================================> show useful commands related to collections
 8. db.'collection_name'.drop() =====================================================> delete Collects.
 9. db.dropDatabase() ===============================================================> delete Database.
-    10. db.'collection_name'.insertOne({....}) =========================================> Insert single Record in collection
+10. db.'collection_name'.insertOne({....}) =========================================> Insert single Record in collection
 11. db.'collection_name'.insertMany([{....}]) ======================================> Insert Multiple record in collection
 12. db.'collection_name'.find() ====================================================> show record inside the collection.
+
+
+
+Example : -----------------------------------------------------------------------------------------------
+
+db.student.insertMany([
+                        {_id:4,name:'Raaz',class:7,roll:9,section:'A',address:'Raniganj'},
+                        {_id:5,name:'Maharaz',class:6,roll:5,section:'C',address:'Durgapur'},
+                        {_id:6,name:'Feroz',class:7,roll:4,section:'B',address:'Asansol'},
+                        {_id:7,name:'Musa',class:10,roll:9,section:'B',address:'Chanda'},
+                        {_id:8,name:'Saba',class:8,roll:7,section:'C',address:'Raniganj'},
+                        ])
