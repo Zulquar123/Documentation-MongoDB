@@ -1,0 +1,85 @@
+1. $and =======>  Returns documents where both queries match.
+2. $or  =======>  Returns documents where either one queries match.
+3. $nor =======>  Returns documents where both queries fail to match.
+4. $not =======>  Returns documents where the query does not match.
+
+
+Examples : ==============>
+
+1. $and =======>  Returns documents where both queries match.
+
+// Find employee whose age is greater than 17 and less than 20.
+
+db.Employee_Details.find({$and:[
+    {age:{$gt:17}},
+    {age:{$lt:20}}]},
+    {_id:0,name:1})
+
+// Find employee whose age is 20 and qualification is equal to B.tech.
+
+db.Employee_Details.find({$and:[
+    {age:{$eq:20}},
+    {qualification:{$eq:"B.tech"}}]},
+    {_id:0,name:1})
+
+// Delete employee whose age is greater than equal to 20 and qualification is equal to B.tech.
+
+db.Employee_Details.deleteMany({$and:[
+    {age:{$gte:20}},
+    {qualification:{$eq:"B.tech"}}]},
+    {_id:0,name:1})
+
+
+
+
+
+2. $or  =======>  Returns documents where either one queries match.
+
+// Find employee whose age is either equal to 20 or qualification is b.tech.
+
+db.Employee_Details.find({$or:[
+    {age:{$eq:20}},
+    {qualification:{$eq:"B.tech"}}]},
+    {_id:0,name:1})
+
+
+
+3. $nor =======>  Returns documents where both queries fail to match.
+
+// Find employee whose age is either not equal to 17 or 19.
+
+db.Employee_Details.find({$nor:[
+    {age:{$eq:20}},
+    {age:{$eq:19}}]},
+    {_id:0,name:1})
+
+4. $not =======>  Returns documents where the query does not match.
+
+// Find employee whose age is not equal to 20.
+
+db.Employee_Details.find({age:{$not:
+    {$gte:18}}},
+    {_id:0,name:1})
+
+// Find employee whose qualification is not equal to B.C.A.
+
+    db.Employee_Details.find({qualification:{$not:
+    {$eq:"B.C.A"}}},
+    {_id:0,name:1})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
