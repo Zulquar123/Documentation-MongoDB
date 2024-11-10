@@ -1,0 +1,51 @@
+1. $regex  --->   Matches string fields to a pattern.
+
+2. $expr   --->   Allows field comparisons within documents.
+
+3. $mod    --->   Matches numbers based on remainder.  
+
+4. $jsonSchema  --->   Validate documents against the given JSON Schema.
+
+
+Examples: ---------------------------------------------------------------------
+
+1. $regex  --->   Matches string fields to a pattern.
+
+    db.Employee_Details.find({name:{$regex:"Haque"}})   // Case-Sensitive
+
+    db.Employee_Details.find({name:{$regex:/Haque/i}})  // Case-inSensitive
+
+    db.Employee_Details.find({name:{$regex:'ul'}})  // Any where in the string.
+
+    db.Employee_Details.find({name:{$regex:'^D'}})  // Starts with Capital D.
+
+    db.Employee_Details.find({name:{$regex:'sh$'}})  // Ends with Capital sh.
+
+2. $expr   --->   Allows field comparisons within documents.
+
+    db.monthlyBudget.find({
+        $expr: {$gt: ['$spent','$budget']}
+    })
+
+    db.sales.find({
+        $expr: {$gt: ['$price',{$multiply:['$cost',1.2]}]}
+    })
+
+    
+3. $mod    --->   Matches numbers based on remainder.  
+
+    db.sales.find({cost:{$mod:[7,0]}})
+
+
+
+
+
+
+
+
+
+
+
+4. $jsonSchema  --->   Validate documents against the given JSON Schema.
+
+

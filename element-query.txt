@@ -1,0 +1,21 @@
+1. $exist ---> Matches the documents that have specified field.
+
+2. $type  ---> Selects the documents if a field is of specified type.
+
+
+Examples -------------------------------------------------------------------------
+
+1. $exist ---> Matches the documents that have specified field.
+
+    db.Employee_Details.find({age:{$exists:false}})
+
+    db.Employee_Details.find({age:{$exists:true}})
+
+
+2. $type  ---> Selects the documents if a field is of specified type.
+
+       db.Employee_Details.find({age:{$type:16}}) // for int
+
+       db.Employee_Details.find({age:{$type:'int'}})
+
+       db.Employee_Details.find({age:{$type:['int','double']}}) // For Multiple types.
