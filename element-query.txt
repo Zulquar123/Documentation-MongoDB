@@ -1,6 +1,8 @@
-1. $exist ---> Matches the documents that have specified field.
+1. $exists ---> Matches the documents that have specified field.
 
 2. $type  ---> Selects the documents if a field is of specified type.
+
+3. $size  ---> This operator matches any array with the number of elements specified by the argument.
 
 
 Examples -------------------------------------------------------------------------
@@ -19,3 +21,9 @@ Examples -----------------------------------------------------------------------
        db.Employee_Details.find({age:{$type:'int'}})
 
        db.Employee_Details.find({age:{$type:['int','double']}}) // For Multiple types.
+
+3. $size  ---> This operator matches any array with the number of elements specified by the argument.
+
+    db.collection.find( { field: { $size: 2 } } );
+
+    db.Employee_Details.find({Skills:{$size:4}})

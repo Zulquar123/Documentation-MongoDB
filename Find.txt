@@ -29,9 +29,9 @@
 
 7. To sort the records/Document.
 
-    db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({name:1})  
+    db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({name:1})  // Asscending order.
 
-     db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({age: -1})  
+     db.Employee_Details.find().projection({_id:0,name:1,qualification:1}).sort({age: -1})  // Descending order.
 
     note: use 1 for acending order and -1 for descending order and can also be used in numeric data.
 
