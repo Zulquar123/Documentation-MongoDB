@@ -44,4 +44,10 @@
 8. To view limited Skiped records/documents.
 
      db.Employee_Details.find().limit(3).skip(1)
+
+9. To view skills field whose value is java in the index 2.
+
+     db.Employee_Details.find({'Skills.2':"Java"})
+
+     db.Employee_Details.find({'Skills.3':"Java"})
                                 

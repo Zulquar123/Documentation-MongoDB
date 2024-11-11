@@ -1,0 +1,42 @@
+1. $all Operator --------------------------
+
+The $all operator in MongoDB is used to match documents where the specified field contains all the elements in the provided array. It's commonly used with arrays to ensure that certain values are present in any order.
+
+Syntax: -----
+
+{ field: { $all: [value1, value2, ... ] } }
+
+Suppose you have a collection of documents like this:
+
+{ "_id": 1, "tags": ["red", "blue", "green"] }
+{ "_id": 2, "tags": ["red", "yellow"] }
+{ "_id": 3, "tags": ["blue", "green"] }
+
+To find documents where the tags field contains both "red" and "green":
+
+db.collection.find({ tags: { $all: ["red", "green"] } })
+
+2. $all Operator --------------------------
+
+The $elemMatch operator in MongoDB is used to match documents that contain an array field with at least one element that satisfies all specified query conditions. It's useful when you need to match multiple conditions within a single element of an array.
+
+Syntax: -----
+
+{ <arrayField>: { $elemMatch: { <condition1>, <condition2>, ... } } }
+
+Example:
+
+Suppose you have a collection of documents representing products with an array of reviews, and you want to find products where at least one review has a rating of 5 and was written by "Alice."
+
+db.products.find({
+  reviews: {
+    $elemMatch: { rating: 5, reviewer: "Alice" }
+  }
+})
+
+
+This query will return products where at least one review meets both conditions (i.e., rating: 5 and reviewer: "Alice").
+
+Key Points
+$elemMatch ensures that the conditions apply to the same array element.
+Without $elemMatch, MongoDB would match documents where any element in the array satisfies each condition independently (which can lead to incorrect matches).
