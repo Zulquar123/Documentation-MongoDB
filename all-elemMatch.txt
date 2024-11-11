@@ -37,6 +37,6 @@ db.products.find({
 
 This query will return products where at least one review meets both conditions (i.e., rating: 5 and reviewer: "Alice").
 
-Key Points
+
 $elemMatch ensures that the conditions apply to the same array element.
 Without $elemMatch, MongoDB would match documents where any element in the array satisfies each condition independently (which can lead to incorrect matches).
