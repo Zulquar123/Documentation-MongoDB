@@ -6,7 +6,7 @@
 5. db.'collection_name'.renameCollection('new_collection_name'); ==================> Renameming a collection.
 6. db.help =========================================================================> Show useful commands.
 7. db.'collection_name'.help =======================================================> show useful commands related to collections
-8. db.'collection_name'.drop() =====================================================> delete Collects.
+8. db.'collection_name'.drop() =====================================================> delete Collections.
 9. db.dropDatabase() ===============================================================> delete Database.
 10. db.'collection_name'.insertOne({....}) =========================================> Insert single Record in collection
 11. db.'collection_name'.insertMany([{....}]) ======================================> Insert Multiple record in collection

@@ -48,7 +48,7 @@ db.'collection_name'.updateMany(
                     {$unset: {Degree: ""}}
                 )
 
-3. $rename  ----------> Rename the key. 
+3. $rename  ----------> Rename the key or field.. 
 
     Example :
              db.Employee_Info.updateMany(
@@ -139,6 +139,24 @@ db.'collection_name'.updateMany(
             )
 
 6. $currentDate ------> sets the field value to the current Date.
+
+
+
+
+In MongoDB, the `$` symbol is used as the **positional operator** in update queries. It allows you to update the first element in an array that matches the query condition.
+
+For example:
+
+```javascript
+db.collection.updateOne(
+  { "items.name": "pen" },
+  { $set: { "items.$.price": 1.5 } }
+);
+```
+
+In this case, MongoDB will locate the first `items` array element with `"name": "pen"` and set its `price` to `1.5`. The `$` symbol here represents the matched position in the array.
+
+The `$` operator is helpful when you want to update specific elements within an array without knowing their exact index, based on certain criteria.
 
 
 
