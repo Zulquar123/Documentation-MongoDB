@@ -24,4 +24,15 @@ db.student.aggregate([
     // {$project: {_id:0,name:1,roll:1,class:1,course:1}},
     {$merge:"student"}                                       // Creating additional fields and merging them to student collections.
     ])
+
+db.student.aggregate([
+    {$group: {_id:"$address"}}      // Group By address.
+    ])
+
+db.student.aggregate([
+    {$group: {_id:"$address",count :{$sum:1}}}  // Group by address and the sum of count
+    ])
     
+db.student.aggregate([
+    {$group: {_id:"$address",student_name:{$push:"$name"}}}   // Show students name who belong to same city.
+    ])
