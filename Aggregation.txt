@@ -4,3 +4,24 @@ db.student.aggregate([
     {$match:{roll:5,class:6}},
     {$project: {_id:0,name:1,roll:1,class:1,address:1}}           // Aggregated Way.
     ])
+
+db.student.aggregate([
+    {$match:{class:10}},
+    {$addFields: {course:"Mongodb"}},                     // It does modified the original document. It modified only pipelines.
+    {$project: {_id:0,name:1,roll:1,class:1,course:1}}
+    ])
+
+db.student.aggregate([
+    {$match:{class:10}},
+    {$addFields: {course:"Mongodb"}},
+    {$project: {_id:0,name:1,roll:1,class:1,course:1}},
+    {$out:"class-10"}                                         // Creating additional fields with a saparate collections.
+    ])
+
+db.student.aggregate([
+    // {$match:{class:10}},
+    {$addFields: {course:"Mongodb"}},
+    // {$project: {_id:0,name:1,roll:1,class:1,course:1}},
+    {$merge:"student"}                                       // Creating additional fields and merging them to student collections.
+    ])
+    
