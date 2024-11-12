@@ -1,0 +1,6 @@
+db.student.find({roll:{$eq:5}, class:{$eq:6}}).projection({_id:0,name:1,roll:1,class:1,address:1})  // Normal Way.
+
+db.student.aggregate([
+    {$match:{roll:5,class:6}},
+    {$project: {_id:0,name:1,roll:1,class:1,address:1}}           // Aggregated Way.
+    ])
